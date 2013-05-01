@@ -1,0 +1,32 @@
+Author: Nathaniel Lewis (linux.robotdude@gmail.com)
+For installation instructions view the INSTALL file
+For the GPLv3 license that this software is released under, view the LICENSE file
+
+Libjoystick ver 0.1
+
+This library provides an easy way to control a joystick or game pad from a C program
+in a Linux system.  It uses an easy API to control the joystick or gamepad.
+
+Features:
+  -Smoothly opening and closing the joystick's device file
+  -Read the quantity of axes and buttons on the joystick
+  -Get the joystick's name
+  -Read the state of the joystick's axes and buttons
+  -Support for multiple joysticks being open at the same time
+
+Included in the package:
+  -32 bit and 64 bit libraries compiled under Xubuntu 9.04 64 bit w/ GCC v4.3.3
+  -32 bit and 64 bit joystick info programs compiled under the same
+    -usage: After setting up the libraries, navigate to the 32bit or 64bit directory
+            depending on the library you used and type:
+            ./js_info <joystick device file>
+            Example:
+
+            teknoman@Linbot:~/libjoystick/64bit$ ./js_info /dev/input/js0
+            Joystick Name: Logitech Logitech Cordless RumblePad 2
+            Axes count: 6
+            Button count: 12
+            teknoman@Linbot:~/libjoystick/64bit$
+     
+  -Source files for the libraries
+  -Libjoystick header file

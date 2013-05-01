@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>495</width>
+    <height>445</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>495</width>
+    <height>445</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>495</width>
+    <height>445</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>QJoystick Reader</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="images.qrc">
+    <normaloff>:/home/teknoman117/Projects/Qt4/QJoystickTest/input-gaming.png</normaloff>:/home/teknoman117/Projects/Qt4/QJoystickTest/input-gaming.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTableWidget" name="DataTable">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>3</y>
+      <width>490</width>
+      <height>392</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>495</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuJoystick">
+    <property name="title">
+     <string>Joystick</string>
+    </property>
+    <addaction name="actionOpenJoystick"/>
+    <addaction name="actionChangeThreshold"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuJoystick"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionOpenJoystick">
+   <property name="text">
+    <string>Open Joystick</string>
+   </property>
+  </action>
+  <action name="actionChangeThreshold">
+   <property name="text">
+    <string>Edit Axis Threshold</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
+ <connections/>
+</ui>

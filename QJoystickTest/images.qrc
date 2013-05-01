@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/home/teknoman117/Projects/Qt4/QJoystickTest">
+        <file>input-gaming.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,38 @@
+Author: Nathaniel Lewis (linux.robotdude@gmail.com)
+
+Installation instructions for libjoystick++
+
+General Install:
+
+  1) Copy the libjoystick++.so file under either the 32bit or 64bit directory
+     depending on the OS you have and put it into the /usr/lib directory or
+     somewhere in you library path.
+
+  2) Copy the joystick.h file to the place of you choosing, I use /usr/include for
+     ease of including the file.
+
+  3) When compiling you program, include the header file and use the flag
+      -ljoystick++.
+
+Install/Compiling from Source:
+
+  1) Navigate to the src directory and type make.  Be sure you have the 
+     linux/joystick.h header before you do.
+
+  2) Run make in the directory.  It will compile libjoystick++.so and js_info,
+     a program to test whether the library is functioning
+
+  3) Type make install and make sure you have admin privilages.  It will copy
+     libjoystick.so to the /usr/lib directory and joystick.h to the /usr/include
+     directory.  It will also copy js_info into the /usr/bin directory
+
+  Note: To force compile the code as 32bit or 64bit (32bit will work on a 64bit OS, but 
+        64 bit WILL NOT work on a 32 bit OS) you have to add some options.
+        To force compile for 32bit: make CFLAGS+=-m32
+        To force compile for 64bit: make CFLAGS+=-m64 CFLAGS+=-fPIC
+
+  Note: The reason that the joystick.h file has both a C section and a C++ class is so
+        the two version of libjoystick are header compatible.  There is libjoystick - a 
+        C based joystick library and libjoystick++ a C++ based library that uses a class.
+
+

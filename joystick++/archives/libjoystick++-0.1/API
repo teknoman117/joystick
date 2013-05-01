@@ -1,0 +1,19 @@
+Author: Nathaniel Lewis (linux.robotdude@gmail.com)
+
+In the Libjoystick++ library, currently there 1 class  
+
+Joystick
+
+The structure contains the following functions
+
+Joystick()                   - the blank constructor, it initalizes variables
+Joystick(const char* joydev) - this contructor connected to a joystick
+int init(const char* joydev) - open a joystick, return -1 if error occurred, else 0
+void stop()                  - closes the joystick and frees memory
+int numAxes()                - returns number of axes on joystick
+int numButtons()             - returns number of buttons on joystick
+int getAxis( int axis )      - returns the value of axis <axis>
+char getButton( int button ) - returns the value of button <buttons> -1 - error, 0 - not pressed, 1 - pressed
+char* getName()              - returns 80 character name
+char* getDevice()            - get the joystick's device file
+int connected                - variable that contains 0 for disconnected and 1 for connected

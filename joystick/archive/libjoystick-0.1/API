@@ -1,0 +1,49 @@
+Author: Nathaniel Lewis (linux.robotdude@gmail.com)
+
+In the Libjoystick library, currently there 1 one structure and 4 functions.  
+
+The structure contains the following fields:
+
+char *device;               - a pointer to the string that defines the device file path
+int js_fd;                  - a variable to hold the file descriptor of the joystick after it has been opend
+int axis_count;             - a variable that holds the number of axes the joystick has
+int button_count;           - a variable that holds the number of buttons the joystick has
+char name[80];              - a string that holds the name of the joystick
+int *axes;                  - a pointer to an array that holds the values of the axes
+char *buttons;              - a pointer to an array that holds the values of the buttons
+struct js_event event;      - a structure to get the joystick events
+
+Any of these can be accessed at any time just by reading them from the struct.
+
+Ex) int buttons = js->button_count;
+    printf("The joystick has %d buttons.\n", buttons);
+
+The API also defines 4 functions
+
+1) Joystick* js_open (const char* joydev)    - this function returns a pointer to a Joystick struct tied to a joystick on
+                                               path specified by joydev or NULL if opening it failed
+   Example) Joystick* js = js_open("/dev/input/js0");
+            if( js == NULL ) {
+                fprintf( stderr, "Error: Failed to open joystick on specified port\n" );
+                exit( EXIT_FAILURE );
+            }
+
+
+2) void js_close(Joystick* js)                - this function closes an active joystick
+
+   Example) js_close( js );    
+
+3) char getJSButton(Joystick* js, int button) - this function returns the value of a button on the joystick.  It will
+                                                return -1 if the button is non-existant
+   Example) char state = getJSButton( js, 0 );
+            if( state ) printf("Button is pressed!\n");
+            else { printf("Button is not pressed.\n"); }
+
+4) int getJSAxis(Joystick* js, int axis)      - this funtion returns the value of an axis on the joystick.  It will
+                                                return -65535 if the axis does not exist. This is safe because -32768
+                                                is the lowest the joystick will generate.
+   Example) int val = getJSAxis( js, 0 );
+            printf("Axis 0 Pos: %d\n", val);
+
+For an example of the API usage, view the js_info.c file is src.
+
